@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Astera Health AI is a North Carolina-based healthcare AI company that helps teams reduce paperwork and organize patient information." />
+  <title>Astera Health AI | North Carolina</title>
+  <style>
+    :root{
+      --bg:#050505;
+      --bg2:#101010;
+      --card:#121212;
+      --card2:#171717;
+      --text:#f5f1e8;
+      --muted:#c9c0ae;
+      --gold:#d4af37;
+      --gold2:#f2d57c;
+      --line:rgba(212,175,55,.18);
+      --shadow:0 22px 60px rgba(0,0,0,.45);
+      --radius:24px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,.16), transparent 18%),
+        radial-gradient(circle at top right, rgba(242,213,124,.10), transparent 22%),
+        linear-gradient(180deg, var(--bg) 0%, #090909 45%, #020202 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
+    .nav{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(16px);
+      background:rgba(5,5,5,.78);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      min-height:80px;
+      display:flex; align-items:center; justify-content:space-between; gap:18px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      color:#111; box-shadow:0 14px 30px rgba(212,175,55,.22);
+    }
+    .menu{display:flex; gap:22px; color:var(--muted); font-size:.95rem; flex-wrap:wrap}
+    .menu a:hover{color:var(--gold2)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:14px 20px; border-radius:999px; border:1px solid transparent;
+      font-weight:800; transition:.18s ease; cursor:pointer; white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:linear-gradient(135deg, var(--gold), var(--gold2)); color:#111; box-shadow:var(--shadow)}
+    .btn-secondary{background:transparent; border-color:var(--line); color:var(--text)}
+    .btn-outline{background:transparent; border-color:rgba(212,175,55,.35); color:var(--gold2)}
+    .hero{padding:86px 0 56px}
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:30px; align-items:center}
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border:1px solid var(--line);
+      border-radius:999px; background:rgba(255,255,255,.03); color:var(--muted);
+      font-size:.92rem; margin-bottom:20px;
+    }
+    .dot{width:9px; height:9px; border-radius:50%; background:var(--gold)}
+    h1{margin:0 0 18px; font-size:clamp(2.8rem, 7vw, 5.9rem); line-height:.94; letter-spacing:-.04em}
+    .accent{color:var(--gold2)}
+    .lead{margin:0 0 28px; max-width:62ch; color:var(--muted); line-height:1.85; font-size:1.06rem}
+    .hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:22px}
+    .mini-stats{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px}
+    .stat{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line); border-radius:18px; padding:16px; box-shadow:var(--shadow)
+    }
+    .stat strong{display:block; font-size:1.22rem; margin-bottom:6px; color:var(--gold2)}
+    .stat span{color:var(--muted); font-size:.92rem; line-height:1.55}
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid var(--line); border-radius:28px; overflow:hidden; box-shadow:var(--shadow)
+    }
+    .panel-top{
+      display:flex; justify-content:space-between; gap:16px; align-items:center;
+      padding:22px 22px 0; color:var(--muted); font-size:.92rem
+    }
+    .signal{display:inline-flex; align-items:center; gap:8px}
+    .signal i{width:10px; height:10px; border-radius:50%; background:var(--gold)}
+    .dashboard{padding:20px 22px 24px; display:grid; gap:16px}
+    .metric-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px}
+    .metric,.card{
+      background:var(--card2); border:1px solid var(--line); border-radius:22px; padding:18px
+    }
+    .label{color:var(--muted); font-size:.88rem; margin-bottom:8px}
+    .value{font-size:1.45rem; font-weight:800; margin-bottom:8px}
+    .bar{height:10px; background:rgba(255,255,255,.07); border-radius:999px; overflow:hidden}
+    .bar span{display:block; height:100%; border-radius:999px; background:linear-gradient(90deg, var(--gold), var(--gold2))}
+    .bars{display:grid; gap:8px; margin-top:12px}
+    .feature-strip{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+    .feature-strip .card h3{margin:0 0 8px; font-size:1.02rem}
+    .feature-strip .card p{margin:0; color:var(--muted); line-height:1.6; font-size:.94rem}
+    section{padding:22px 0 8px}
+    .section-head{margin-bottom:18px}
+    .section-head h2{margin:0 0 10px; font-size:clamp(1.7rem, 4vw, 2.6rem); letter-spacing:-.02em}
+    .section-head p{margin:0; max-width:76ch; color:var(--muted); line-height:1.75}
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .grid-3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px}
+    .info-card{
+      padding:24px; border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line); box-shadow:var(--shadow)
+    }
+    .info-card h3{margin:0 0 10px; font-size:1.15rem}
+    .info-card p,.info-card li{color:var(--muted); line-height:1.75}
+    .info-card ul{margin:12px 0 0; padding-left:18px}
+    .tag-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .tag{
+      padding:9px 12px; border-radius:999px;
+      background:rgba(212,175,55,.08); border:1px solid rgba(212,175,55,.22);
+      color:var(--gold2); font-size:.9rem
+    }
+    .quote{
+      padding:26px; border-left:4px solid var(--gold);
+      background:rgba(255,255,255,.04); border-radius:18px;
+      line-height:1.8; font-size:1.04rem
+    }
+    .quote span{display:block; margin-top:10px; color:var(--muted); font-size:.92rem}
+    .contact-box{display:grid; grid-template-columns:1.05fr .95fr; gap:18px}
+    form{display:grid; gap:12px}
+    input, textarea{
+      width:100%; padding:14px 15px; border-radius:14px; border:1px solid var(--line);
+      background:#0d0d0d; color:var(--text); outline:none; font:inherit
+    }
+    input::placeholder, textarea::placeholder{color:#9d9483}
+    textarea{min-height:130px; resize:vertical}
+    .link-list{display:grid; gap:12px; margin-top:10px}
+    .link-item{
+      display:flex; justify-content:space-between; gap:16px; align-items:center;
+      padding:14px 16px; border-radius:16px; background:rgba(255,255,255,.03);
+      border:1px solid var(--line)
+    }
+    .link-item span{color:var(--muted)}
+    details{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px 16px;
+    }
+    summary{cursor:pointer; font-weight:700; color:var(--text)}
+    details p{margin:10px 0 0; color:var(--muted); line-height:1.7}
+    .footer{
+      padding:30px 0 44px;
+      color:var(--muted); font-size:.92rem
+    }
+    .footer-inner{
+      display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap;
+      border-top:1px solid var(--line); padding-top:20px
+    }
+    @media (max-width: 980px){
+      .hero-grid,.grid-2,.grid-3,.contact-box{grid-template-columns:1fr}
+      .mini-stats,.metric-grid,.feature-strip{grid-template-columns:1fr}
+      .menu{display:none}
+      .hero{padding-top:58px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="logo">A</div>
+        <div>Astera Health AI</div>
+      </div>
+      <nav class="menu" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#solution">Solution</a>
+        <a href="#impact">Impact</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary" href="#contact">Request a Demo</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Based in North Carolina · Healthcare AI for smarter admin workflows</div>
+          <h1>Less paperwork.<br><span class="accent">More time for care.</span></h1>
+          <p class="lead">
+            Astera Health AI helps healthcare teams organize patient information, reduce repetitive documentation, and improve operational clarity with a simple, modern digital experience.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Book a Consultation</a>
+            <a class="btn btn-secondary" href="#solution">See How It Works</a>
+            <a class="btn btn-outline" href="mailto:hello@asterahealthai.com">Email Us</a>
+          </div>
+          <div class="mini-stats">
+            <div class="stat"><strong>Faster</strong><span>Documentation workflows that save time across teams.</span></div>
+            <div class="stat"><strong>Clearer</strong><span>Structured patient information that is easier to access.</span></div>
+            <div class="stat"><strong>Smarter</strong><span>AI support that improves efficiency without complexity.</span></div>
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="Platform overview">
+          <div class="panel-top">
+            <div class="signal"><i></i> Platform snapshot</div>
+            <div>North Carolina</div>
+          </div>
+          <div class="dashboard">
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="label">Admin workload</div>
+                <div class="value">Reduced</div>
+                <div class="bars"><div class="bar"><span style="width:82%"></span></div></div>
+              </div>
+              <div class="metric">
+                <div class="label">Workflow visibility</div>
+                <div class="value">Improved</div>
+                <div class="bars"><div class="bar"><span style="width:88%"></span></div></div>
+              </div>
+            </div>
+            <div class="feature-strip">
+              <div class="card">
+                <div class="label">1. Organize</div>
+                <h3>Structure patient information</h3>
+                <p>Keep records centralized and easy to retrieve.</p>
+              </div>
+              <div class="card">
+                <div class="label">2. Simplify</div>
+                <h3>Reduce repetitive paperwork</h3>
+                <p>Cut down manual steps and administrative friction.</p>
+              </div>
+              <div class="card">
+                <div class="label">3. Support</div>
+                <h3>Help teams move faster</h3>
+                <p>Give staff more time to focus on patients.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap grid-2">
+        <div class="info-card">
+          <div class="section-head">
+            <h2>About Astera Health AI</h2>
+            <p>Astera Health AI is a healthcare technology company focused on reducing paperwork and improving how patient information is organized and accessed.</p>
+          </div>
+          <p>
+            The platform is designed for healthcare organizations that want a cleaner, faster, and more reliable way to manage administrative work. Instead of scattered paperwork and manual follow-ups, teams get a more organized system that supports daily operations.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Healthcare AI</span>
+            <span class="tag">North Carolina</span>
+            <span class="tag">Workflow efficiency</span>
+            <span class="tag">Patient information</span>
+            <span class="tag">Admin support</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="section-head">
+            <h2>What it solves</h2>
+            <p>The goal is simple: make healthcare operations easier to manage.</p>
+          </div>
+          <ul>
+            <li>Too much manual paperwork</li>
+            <li>Difficulty keeping patient information organized</li>
+            <li>Slow retrieval of important records</li>
+            <li>Time wasted on repetitive admin tasks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>How the platform helps</h2>
+          <p>The website explains the value clearly so visitors understand the problem, the solution, and the next step.</p>
+        </div>
+        <div class="grid-3">
+          <div class="info-card">
+            <h3>Organize records</h3>
+            <p>Bring patient information into one structured system that is easier to manage and access.</p>
+          </div>
+          <div class="info-card">
+            <h3>Reduce admin burden</h3>
+            <p>Cut down on repetitive paperwork so teams can focus more on care and less on manual tasks.</p>
+          </div>
+          <div class="info-card">
+            <h3>Improve visibility</h3>
+            <p>Help healthcare teams see what is happening more clearly across records, tasks, and workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="wrap grid-2">
+        <div class="info-card">
+          <div class="section-head">
+            <h2>Why this matters</h2>
+            <p>A strong website is not just a brochure. It builds trust and helps potential clients understand the company's value quickly.</p>
+          </div>
+          <div class="quote">
+            “Technology creates value only when people want to use it.”
+            <span>That is why the website is designed to be simple, clear, and action-oriented.</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="section-head">
+            <h2>Who it serves</h2>
+            <p>The site is written for healthcare decision-makers and operational teams.</p>
+          </div>
+          <ul>
+            <li>Hospitals</li>
+            <li>Clinics</li>
+            <li>Healthcare administrators</li>
+            <li>Nursing teams</li>
+            <li>Operations and compliance teams</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Frequently asked questions</h2>
+          <p>Clickable FAQs help the site feel more interactive and give visitors quick answers.</p>
+        </div>
+        <div class="grid-2">
+          <details>
+            <summary>What does Astera Health AI do?</summary>
+            <p>It helps healthcare teams reduce paperwork, organize patient information, and improve administrative efficiency.</p>
+          </details>
+          <details>
+            <summary>Who is the company for?</summary>
+            <p>Hospitals, clinics, healthcare administrators, nurses, and operations teams looking for a simpler workflow.</p>
+          </details>
+          <details>
+            <summary>Where is the company based?</summary>
+            <p>Astera Health AI is positioned as a North Carolina-based company serving healthcare organizations.</p>
+          </details>
+          <details>
+            <summary>How can someone get started?</summary>
+            <p>They can request a demo, send an email, or fill out the contact form to begin a conversation.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact-box">
+        <div class="info-card">
+          <div class="section-head">
+            <h2>Get in touch</h2>
+            <p>Add a simple form so visitors can request a demo, subscribe to updates, or ask for more information.</p>
+          </div>
+          <form action="mailto:hello@asterahealthai.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Full name" aria-label="Full name" />
+            <input type="email" name="email" placeholder="Work email" aria-label="Work email" />
+            <input type="text" name="organization" placeholder="Organization" aria-label="Organization" />
+            <textarea name="message" placeholder="Tell us what you need" aria-label="Tell us what you need"></textarea>
+            <button class="btn btn-primary" type="submit">Submit Inquiry</button>
+          </form>
+        </div>
+        <div class="info-card">
+          <div class="section-head">
+            <h2>Contact options</h2>
+            <p>These links are clickable and ready for use.</p>
+          </div>
+          <div class="link-list">
+            <a class="link-item" href="mailto:hello@asterahealthai.com">
+              <strong>Email</strong>
+              <span>hello@asterahealthai.com</span>
+            </a>
+            <a class="link-item" href="tel:+19195550123">
+              <strong>Phone</strong>
+              <span>+1 (919) 555-0123</span>
+            </a>
+            <a class="link-item" href="https://www.google.com/maps/search/North+Carolina" target="_blank" rel="noopener noreferrer">
+              <strong>Location</strong>
+              <span>North Carolina</span>
+            </a>
+          </div>
+          <div class="tag-row" style="margin-top:18px">
+            <span class="tag">Monthly updates</span>
+            <span class="tag">Demo requests</span>
+            <span class="tag">Lead capture</span>
+          </div>
+          <div style="margin-top:22px; display:flex; gap:12px; flex-wrap:wrap">
+            <a class="btn btn-secondary" href="#top">Back to top</a>
+            <a class="btn btn-outline" href="https://www.google.com/maps/search/North+Carolina" target="_blank" rel="noopener noreferrer">View North Carolina</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>© 2026 Astera Health AI. All rights reserved.</div>
+      <div>Healthcare AI · Paperwork reduction · North Carolina</div>
+    </div>
+  </footer>
+</body>
+</html>
